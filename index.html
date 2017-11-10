@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<link rel="stylesheet" href="css/main.css" media="screen">
+</head>
+<body>
+
+<div id="progressBar1" class="progressBarSkin progressBar_position"></div>
+
+<form class="progressControls" onsubmit="event.preventDefault()">
+    <div>
+        <input class="progressControls__value" type="text" onchange="progress1.getValue(this.value)">
+        <span class="progressControls__title">Value</span>
+    </div>
+    <div>
+        <input id="progressControls__checkBox1" class="progressControls__animate" type="checkbox" onchange="progress1.rotation(this.checked)" size="3">
+        <label for="progressControls__checkBox1"><i></i></label>
+        <span class="progressControls__title">Animate</span>
+    </div>
+    <div>
+        <input id="progressControls__checkBox2" class="progressControls__hide" type="checkbox" onchange="progress1.hide(this.checked)">
+        <label for="progressControls__checkBox2"><i></i></label>
+        <span class="progressControls__title">Hide</span>
+    </div>
+</form>
+
+
+<script type="text/javascript" src="js/progress.js"></script>
+</body>
+</html>

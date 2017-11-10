@@ -1,0 +1,204 @@
+@import "fonts.scss";
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, container {
+	margin: 0;
+	padding: 0;
+}
+*{
+	margin:0;
+	padding:0;
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+	     -o-transform-origin: $origin;
+	    -ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+  @include transform-origin (center center);
+}
+
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+@mixin animate($name, $duration, $iteration, $direction, $timefunction) {
+  -webkit-animation-duration: $duration;
+     -moz-animation-duration: $duration;
+       -o-animation-duration: $duration;
+          animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration;
+     -moz-animation-iteration-count: $iteration;
+       -o-animation-iteration-count: $iteration;
+          animation-iteration-count: $iteration;
+  -webkit-animation-name: $name;
+     -moz-animation-name: $name;
+       -o-animation-name: $name;
+          animation-name: $name;
+  -webkit-animation-direction: $direction;
+     -moz-animation-direction: $direction;
+       -o-animation-direction: $direction;
+          animation-direction: $direction;
+  -webkit-animation-timing-function: $timefunction;
+     -moz-animation-timing-function: $timefunction;
+       -o-animation-timing-function: $timefunction;
+          animation-timing-function: $timefunction;
+}
+
+
+.progressBar{
+  display: block;
+  #progressBar__circle{
+    @include rotate(-90);
+  }
+  .progressBar__circle_rotation{
+    @include keyframes(rotation) {
+    from {
+      @include rotate(-90);
+    }
+    to {
+      @include rotate(270);
+    }
+  }
+  @mixin pulsate {
+    @include animate(rotation, 2s, infinite, normal, linear);
+  }
+    @include pulsate;
+  }
+}
+
+body{
+  text-align: center;
+  background-image: url(/img/2.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.progressBar_position{
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 35%;
+  @media (orientation: landscape) {
+  	& {
+      margin-top: 15%;
+      margin-right: 10%;
+  	}
+  }
+}
+.progressBarSkin{
+  width: 150px;
+  height: 150px;
+}
+
+.progressBar_hidden{
+  display: none;
+}
+
+
+
+.progressControls{
+  vertical-align: middle;
+  width: 120px;
+  display: block;
+  margin: 0 auto;
+  text-align: left;
+  font-family: CALIBRI;
+  font-size: 16px;
+  margin-top: 30%;
+  @media (orientation: landscape) {
+  	& {
+      display: inline-block;
+      margin-top: 15%;
+  	}
+  }
+
+  div{
+    margin-bottom: 10px;
+  }
+  .progressControls__value{
+    width: 38px;
+    height: 20px;
+    border-radius: 20px;
+    border: 1px solid black;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 17px;
+  }
+
+  input[type=checkbox] {
+  display: none;
+}
+
+  .progressControls__title{
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+
+input[type=checkbox] + label {
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #4a4a4a;
+  color: white;
+  height: 24px;
+  position: relative;
+  width: 40px;
+  border-radius: 20px;
+}
+
+input[type=checkbox] + label i {
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+input[type=checkbox]:checked + label {
+  background-color: #7ed321;
+}
+
+input[type=checkbox] + label:before,
+input[type=checkbox] + label:after,
+input[type=checkbox] + label i {
+  width: 50%;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+}
+
+input[type=checkbox] + label i {
+  top: 5%;
+  background-color: white;
+  height: 90%;
+  left: 3%;
+  position: absolute;
+  width: 55%;
+  border-radius: 50%;
+}
+
+input[type=checkbox]:checked + label i {
+  left: 43%;
+}
+}
