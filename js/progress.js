@@ -1,29 +1,29 @@
 /*
-    Класс progressBar создаёт и управляет индикатором загрузки.
-    Данный класс содержит конструктор класса и 4 метода getValue, rotation, hide, setValue.
-    Механику индикатора загрузки я постарался реализовать на подобии того, как работают большинство каруселей,
-    то есть создаётся пустой блок, для него прописывается id, по которому класс создаёт индикатор загрузки.
+    The progressBar class is created and manages the download indicator.
+    This class contains a class constructor and 4 methods getValue, rotation, hide, setValue.
+    The mechanics of the download indicator I tried to realize on the basis of how most of the carousels work,
+    that is, an empty block is created, an id is assigned for it, according to which the class creates updates.
 
-    Конструктор класса constructor(data={id: string, width: number, speed: string}) - в конструктор класса
-    передаётся объект, который содержит:
-    id (id блока, который будет являтся индикатором загрузки), width (ширина кольца индикатора),
-    speed ([ms] время заполнения индикатора загрузки). Конструктор класса устанавливает начальные значения переменных
-    класса, которые будут использоваться при его загрузке. Было принято решение поместить в конструктор класса
-    формирование DOM дерева нашего индикатора.
+    The constructor of the constructor class (data = {id: string, width: number, speed: string}) - to the constructor
+    of the class an object is transmitted that contains:
+    id (identifier of the block that will be the download indicator), width (width of the indicator ring),
+    speed ([ms] fill time of the load indicator). Constructor of a set of initial values ??of variables
+    class to be used when it is loaded. It was decided to put in a class constructor
+    forming the DOM tree of our indicator.
 
-    rotation(bool) - данный метод запускает анимацию вращения индикатора загрузки. Входным параметром является булевая
-    переменная. Анимация реализованна при помощи css анимации и активируется/диактивируется добавлением/удалением класса
-    "progressBar__circle_rotation"
+    rotation (bool) - this method starts the download loading animation. The input parameter is Boolean
+    variable. Animation implemented using css animation and activated / activated by adding / removing a class
+    "ProgressBar__circle_rotation"
 
-    hide(bool) - данный метод управляет видимостью индикатора загрузки. Входным параметром является булевая
-    переменная. Управление видимостью реализуется средствами css и активируется/диактивируется добавлением/удалением класса
-    "progressBar_hidden"
+    hide (bool) - this method controls the visibility of the download indicator. The input parameter is Boolean
+    variable. The visibility control is implemented by means of css and is activated / deactivated by adding / removing a class
+    "ProgressBar_hidden"
 
-    getValue(string) - данный метода получает величину заполнения индикатора загрузки проверяет его и
-    передаёт это значение в метод setValue.
+    getValue (string) - this method gets the values ??of the load indicators checks it and
+    passes this value to the setValue method.
 
-    setValue() - данный метод управляет степенью заполнения индикатора. Происходит пересчёт числа от 0 до 100 в длину дуги
-    индикатора и запуск анимации заполнения. В данной реализации используется SVG анимация.
+    setValue () - this method controls the degree of filling of the indicator. The number is recalculated from 0
+    to 100 in the length of the arc indicator and start the fill animation. SVG animation is used in this project.
 */
 
 class progressBar{
@@ -102,14 +102,14 @@ class progressBar{
     }
 }
 
-// Инициализация индикатора загрузки
+// Initializing the download indicator
 let progress1 = new progressBar(data={id:'progressBar1', width:'9', speed:'0.5s'});
 
 /*
-    Данное тестовое задание было реализованно втечении двух дней. Я считаю это долго. Данное количество времени
-    было потраченно в связи с тем, что изначально был выбран по моему мнению неверный алгоритм и методика реализции
-    поставленной задачи. Тем не менее свой путь я скорректировал и то, что получилось в итоге лично мне довольно
-    нравится...
-    В данной реализации на одной странице может быть созданно сколько угодно много индикаторов загрузки
-    которыми без лишних манипуляций можно упровлять.
+    This test task was implemented within two days. I think it's long. This amount of time
+    was spent in connection with the fact that initially it was chosen in my opinion the wrong algorithm and the
+    implementation technique task. Nevertheless, I corrected my way and what happened as a result, I personally have
+    like...
+    In this implementation, as many as many download indicators can be created on one page
+    which can be controlled without unnecessary manipulation.
 */
